@@ -246,7 +246,8 @@
         Dim threadMessage As String = String.Format("Thread started at '{0}', Task Number={1}", DateTime.Now.ToString("HH:mm:ss.fff"), args.Argument)
 
         Dim errorStr As String = String.Empty
-        Dim rdioStr As String = "Skipped"
+        Dim rdioStr As String = String.Empty
+        Dim bccStr As String = String.Empty
 
         If fMain.BroadcastifyMode.Checked Then
             errorStr = HTTP.Send(ApiKey, SystemId, SlotID, Freq, Duration, Epoch, False, mp3Audio)
@@ -260,11 +261,18 @@
             rdioStr = "Skipped"
         End If
 
+        If fMain.BCCheckBox.Checked Then
+            bccStr = HTTP.SendToBunnyCalls(Freq, Duration, Epoch, mp3Audio)
+        Else
+            bccStr = "Skipped"
+        End If
+
         Return New With {
             Key .WorkerId = args.Argument,
             Key .Message = threadMessage,
             Key .ErrorStr = errorStr,
             Key .RdioStr = rdioStr,
+            Key .BccStr = bccStr,
             Key .Audio = mp3Audio
         }
     End Function,

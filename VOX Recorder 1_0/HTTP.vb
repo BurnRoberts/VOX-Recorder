@@ -41,6 +41,91 @@
 
     End Function
 
+    Public Shared Function SendToBunnyCalls(Freq As String, Duration As String, Epoch As String, Audio() As Byte) As String
+        If Not fMain.BCCheckBox.Checked Then Return "BunnyCalls upload skipped: Mode unchecked."
+        If String.IsNullOrEmpty(fMain.BC_ApiKey.Text) Then Return "BunnyCalls upload ERROR: API key is empty."
+        If String.IsNullOrEmpty(fMain.BC_SysID.Text) Then Return "BunnyCalls upload ERROR: System ID is empty."
+        If String.IsNullOrEmpty(fMain.BC_TGID.Text) Then Return "BunnyCalls upload ERROR: Talkgroup ID is empty."
+
+
+
+
+
+        SyncLock Obj
+            Dim postParameters As New Dictionary(Of String, Object)()
+            Dim postURL As String = "https://dist.bunnycalls.com/api/call-upload"
+            Dim startEpoch As Long = CLng(Epoch)
+            Dim endEpoch As Long = startEpoch + CLng(Math.Round(Double.Parse(Duration)))
+            Dim callNumber As String = (DateTime.Now.Ticks Mod 100000).ToString("D5") ' crude unique-ish ID
+            Dim fileName As String = String.Format("{0}_{1}_{2}_{3}.mp3", fMain.BC_TGID.Text, startEpoch, endEpoch, callNumber)
+            postParameters.Add("dateTime", Epoch)
+            postParameters.Add("audioName", fileName)
+            postParameters.Add("audioType", "audio/mpeg")
+            postParameters.Add("frequency", Freq)
+            postParameters.Add("callDuration", Duration)
+            postParameters.Add("key", fMain.BC_ApiKey.Text)
+            postParameters.Add("source", "0")
+            postParameters.Add("system", fMain.BC_SysID.Text)
+            postParameters.Add("talkgroup", fMain.BC_TGID.Text)
+            postParameters.Add("audio", Audio)
+
+            Dim responseString As String = BunnyCalls_SendMultipartFormData(postURL, postParameters)
+            Return responseString
+        End SyncLock
+    End Function
+
+    Public Shared Function BunnyCalls_SendMultipartFormData(url As String, formFields As Dictionary(Of String, Object)) As String
+        Dim boundary As String = "------------------------" & DateTime.Now.Ticks.ToString("x")
+        Dim newLine As String = vbCrLf
+        Dim encoding As Text.Encoding = Text.Encoding.UTF8
+
+        Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "multipart/form-data; boundary=" & boundary
+        request.KeepAlive = True
+
+        Using requestStream As Stream = request.GetRequestStream()
+            For Each field As KeyValuePair(Of String, Object) In formFields
+                Dim isFile As Boolean = TypeOf field.Value Is Byte() AndAlso field.Key.ToLower() = "audio"
+
+                If isFile Then
+                    ' Use audioName and audioType for headers
+                    Dim fileName As String = If(formFields.ContainsKey("audioName"), CStr(formFields("audioName")), "file.mp3")
+                    Dim mimeType As String = If(formFields.ContainsKey("audioType"), CStr(formFields("audioType")), "application/octet-stream")
+
+                    Dim fileHeader As String = $"--{boundary}{newLine}" &
+                                           $"Content-Disposition: form-data; name=""{field.Key}""; filename=""{fileName}""{newLine}" &
+                                           $"Content-Type: {mimeType}{newLine}{newLine}"
+                    requestStream.Write(encoding.GetBytes(fileHeader), 0, encoding.GetByteCount(fileHeader))
+                    requestStream.Write(CType(field.Value, Byte()), 0, CType(field.Value, Byte()).Length)
+                    requestStream.Write(encoding.GetBytes(newLine), 0, encoding.GetByteCount(newLine))
+                Else
+                    Dim fieldData As String = $"--{boundary}{newLine}" &
+                                          $"Content-Disposition: form-data; name=""{field.Key}""{newLine}{newLine}" &
+                                          CStr(field.Value) & newLine
+                    requestStream.Write(encoding.GetBytes(fieldData), 0, encoding.GetByteCount(fieldData))
+                End If
+            Next
+
+            ' End boundary
+            Dim endBoundary As String = $"--{boundary}--{newLine}"
+            requestStream.Write(encoding.GetBytes(endBoundary), 0, encoding.GetByteCount(endBoundary))
+        End Using
+
+        ' Read the response
+        Try
+            Using response As HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                Using reader As New StreamReader(response.GetResponseStream())
+                    Return reader.ReadToEnd()
+                End Using
+            End Using
+        Catch ex As WebException
+            Using reader As New StreamReader(ex.Response.GetResponseStream())
+                Return "Upload failed: " & reader.ReadToEnd()
+            End Using
+        End Try
+    End Function
+
     Private Shared Function FromUnixTime(epoch As Long) As DateTime
         Dim origin As New DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
         Return origin.AddSeconds(epoch)

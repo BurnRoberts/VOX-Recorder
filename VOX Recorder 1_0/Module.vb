@@ -232,6 +232,14 @@
                 Else
                     sb.AppendLine("[BROADCASTIFY MODE]=" & 0)
                 End If
+                sb.AppendLine("[BUNNYCALLS API KEY]=" & .BC_ApiKey.Text)
+                sb.AppendLine("[BUNNYCALLS SYSTEM ID]=" & .BC_SysID.Text)
+                sb.AppendLine("[BUNNYCALLS TALKGROUP ID]=" & .BC_TGID.Text)
+                If .BCCheckBox.Checked = True Then
+                    sb.AppendLine("[BUNNYCALLS MODE]=" & 1)
+                Else
+                    sb.AppendLine("[BUNNYCALLS MODE]=" & 0)
+                End If
             End With
 
             File.WriteAllText(Application.ExecutablePath.Replace("exe", "cfg"), sb.ToString)

@@ -101,6 +101,14 @@ Partial Class FrmMain
         Me.Label2 = New System.Windows.Forms.Label()
         Me.RDIO_Url = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BunnyCalls = New System.Windows.Forms.TabPage()
+        Me.BC_LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.BC_TGID = New System.Windows.Forms.TextBox()
+        Me.BC_SysID = New System.Windows.Forms.TextBox()
+        Me.BC_ApiKey = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TP4_Button1 = New System.Windows.Forms.Button()
         Me.TP4_LinkLabel4 = New System.Windows.Forms.LinkLabel()
@@ -115,6 +123,7 @@ Partial Class FrmMain
         Me.TP4_Label1 = New System.Windows.Forms.Label()
         Me.TP4_PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BCCheckBox = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TP1_GroupBox1.SuspendLayout()
@@ -127,6 +136,7 @@ Partial Class FrmMain
         CType(Me.TP2_DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         Me.TabPage5.SuspendLayout()
+        Me.BunnyCalls.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.TP4_PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -137,6 +147,7 @@ Partial Class FrmMain
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.BunnyCalls)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
@@ -148,6 +159,7 @@ Partial Class FrmMain
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage1.Controls.Add(Me.BCCheckBox)
         Me.TabPage1.Controls.Add(Me.Label5)
         Me.TabPage1.Controls.Add(Me.RdioMode)
         Me.TabPage1.Controls.Add(Me.BroadcastifyMode)
@@ -189,28 +201,28 @@ Partial Class FrmMain
         Me.TabPage1.Controls.Add(Me.TP1_TextBox1)
         Me.TabPage1.Controls.Add(Me.TP1_Label1)
         Me.TabPage1.Controls.Add(Me.Tone_GroupBox1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(885, 503)
+        Me.TabPage1.Size = New System.Drawing.Size(885, 498)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Main"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(323, 202)
+        Me.Label5.Location = New System.Drawing.Point(323, 136)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 15)
+        Me.Label5.Size = New System.Drawing.Size(81, 20)
         Me.Label5.TabIndex = 38
         Me.Label5.Text = "Upload To:"
         '
         'RdioMode
         '
         Me.RdioMode.AutoSize = True
-        Me.RdioMode.Location = New System.Drawing.Point(351, 245)
+        Me.RdioMode.Location = New System.Drawing.Point(351, 179)
         Me.RdioMode.Name = "RdioMode"
-        Me.RdioMode.Size = New System.Drawing.Size(95, 19)
+        Me.RdioMode.Size = New System.Drawing.Size(118, 24)
         Me.RdioMode.TabIndex = 37
         Me.RdioMode.Text = "Rdio Scanner"
         Me.RdioMode.UseVisualStyleBackColor = True
@@ -218,9 +230,9 @@ Partial Class FrmMain
         'BroadcastifyMode
         '
         Me.BroadcastifyMode.AutoSize = True
-        Me.BroadcastifyMode.Location = New System.Drawing.Point(351, 220)
+        Me.BroadcastifyMode.Location = New System.Drawing.Point(351, 154)
         Me.BroadcastifyMode.Name = "BroadcastifyMode"
-        Me.BroadcastifyMode.Size = New System.Drawing.Size(91, 19)
+        Me.BroadcastifyMode.Size = New System.Drawing.Size(113, 24)
         Me.BroadcastifyMode.TabIndex = 36
         Me.BroadcastifyMode.Text = "Broadcastify"
         Me.BroadcastifyMode.UseVisualStyleBackColor = True
@@ -230,7 +242,7 @@ Partial Class FrmMain
         Me.TP1_TextBox4.BackColor = System.Drawing.SystemColors.Window
         Me.TP1_TextBox4.Location = New System.Drawing.Point(20, 160)
         Me.TP1_TextBox4.Name = "TP1_TextBox4"
-        Me.TP1_TextBox4.Size = New System.Drawing.Size(116, 23)
+        Me.TP1_TextBox4.Size = New System.Drawing.Size(116, 27)
         Me.TP1_TextBox4.TabIndex = 7
         '
         'TP1_Label6
@@ -239,7 +251,7 @@ Partial Class FrmMain
         Me.TP1_Label6.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_Label6.Location = New System.Drawing.Point(20, 140)
         Me.TP1_Label6.Name = "TP1_Label6"
-        Me.TP1_Label6.Size = New System.Drawing.Size(41, 15)
+        Me.TP1_Label6.Size = New System.Drawing.Size(54, 20)
         Me.TP1_Label6.TabIndex = 6
         Me.TP1_Label6.Text = "Slot ID"
         '
@@ -260,7 +272,7 @@ Partial Class FrmMain
         Me.TP1_CheckBox5.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_CheckBox5.Location = New System.Drawing.Point(20, 345)
         Me.TP1_CheckBox5.Name = "TP1_CheckBox5"
-        Me.TP1_CheckBox5.Size = New System.Drawing.Size(112, 19)
+        Me.TP1_CheckBox5.Size = New System.Drawing.Size(140, 24)
         Me.TP1_CheckBox5.TabIndex = 14
         Me.TP1_CheckBox5.Text = "Save Recordings"
         Me.TP1_CheckBox5.UseVisualStyleBackColor = False
@@ -298,7 +310,7 @@ Partial Class FrmMain
         Me.TP1_CheckBox6.AutoSize = True
         Me.TP1_CheckBox6.Location = New System.Drawing.Point(35, 114)
         Me.TP1_CheckBox6.Name = "TP1_CheckBox6"
-        Me.TP1_CheckBox6.Size = New System.Drawing.Size(116, 19)
+        Me.TP1_CheckBox6.Size = New System.Drawing.Size(143, 24)
         Me.TP1_CheckBox6.TabIndex = 3
         Me.TP1_CheckBox6.Text = "Above Threshold"
         Me.TP1_CheckBox6.UseVisualStyleBackColor = True
@@ -308,7 +320,7 @@ Partial Class FrmMain
         Me.TP1_RadioButton3.AutoSize = True
         Me.TP1_RadioButton3.Location = New System.Drawing.Point(4, 84)
         Me.TP1_RadioButton3.Name = "TP1_RadioButton3"
-        Me.TP1_RadioButton3.Size = New System.Drawing.Size(143, 19)
+        Me.TP1_RadioButton3.Size = New System.Drawing.Size(176, 24)
         Me.TP1_RadioButton3.TabIndex = 2
         Me.TP1_RadioButton3.TabStop = True
         Me.TP1_RadioButton3.Text = "When Feed Is Running"
@@ -319,7 +331,7 @@ Partial Class FrmMain
         Me.TP1_RadioButton2.AutoSize = True
         Me.TP1_RadioButton2.Location = New System.Drawing.Point(4, 54)
         Me.TP1_RadioButton2.Name = "TP1_RadioButton2"
-        Me.TP1_RadioButton2.Size = New System.Drawing.Size(92, 19)
+        Me.TP1_RadioButton2.Size = New System.Drawing.Size(113, 24)
         Me.TP1_RadioButton2.TabIndex = 1
         Me.TP1_RadioButton2.TabStop = True
         Me.TP1_RadioButton2.Text = "All The Time"
@@ -330,7 +342,7 @@ Partial Class FrmMain
         Me.TP1_RadioButton1.AutoSize = True
         Me.TP1_RadioButton1.Location = New System.Drawing.Point(4, 24)
         Me.TP1_RadioButton1.Name = "TP1_RadioButton1"
-        Me.TP1_RadioButton1.Size = New System.Drawing.Size(42, 19)
+        Me.TP1_RadioButton1.Size = New System.Drawing.Size(51, 24)
         Me.TP1_RadioButton1.TabIndex = 0
         Me.TP1_RadioButton1.TabStop = True
         Me.TP1_RadioButton1.Text = "Off"
@@ -364,7 +376,7 @@ Partial Class FrmMain
         Me.TP1_TextBox5.BackColor = System.Drawing.SystemColors.Window
         Me.TP1_TextBox5.Location = New System.Drawing.Point(185, 160)
         Me.TP1_TextBox5.Name = "TP1_TextBox5"
-        Me.TP1_TextBox5.Size = New System.Drawing.Size(116, 23)
+        Me.TP1_TextBox5.Size = New System.Drawing.Size(116, 27)
         Me.TP1_TextBox5.TabIndex = 9
         '
         'TP1_CheckBox4
@@ -373,7 +385,7 @@ Partial Class FrmMain
         Me.TP1_CheckBox4.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_CheckBox4.Location = New System.Drawing.Point(20, 313)
         Me.TP1_CheckBox4.Name = "TP1_CheckBox4"
-        Me.TP1_CheckBox4.Size = New System.Drawing.Size(153, 19)
+        Me.TP1_CheckBox4.Size = New System.Drawing.Size(190, 24)
         Me.TP1_CheckBox4.TabIndex = 13
         Me.TP1_CheckBox4.Text = "Playback After Calls End"
         Me.TP1_CheckBox4.UseVisualStyleBackColor = False
@@ -395,7 +407,7 @@ Partial Class FrmMain
         Me.Audio_Label6.BackColor = System.Drawing.SystemColors.Control
         Me.Audio_Label6.Location = New System.Drawing.Point(533, 210)
         Me.Audio_Label6.Name = "Audio_Label6"
-        Me.Audio_Label6.Size = New System.Drawing.Size(68, 15)
+        Me.Audio_Label6.Size = New System.Drawing.Size(86, 20)
         Me.Audio_Label6.TabIndex = 24
         Me.Audio_Label6.Text = "MP3 Bitrate"
         '
@@ -416,7 +428,7 @@ Partial Class FrmMain
         Me.Audio_Label4.BackColor = System.Drawing.SystemColors.Control
         Me.Audio_Label4.Location = New System.Drawing.Point(533, 150)
         Me.Audio_Label4.Name = "Audio_Label4"
-        Me.Audio_Label4.Size = New System.Drawing.Size(72, 15)
+        Me.Audio_Label4.Size = New System.Drawing.Size(93, 20)
         Me.Audio_Label4.TabIndex = 22
         Me.Audio_Label4.Text = "Sample Rate"
         '
@@ -437,7 +449,7 @@ Partial Class FrmMain
         Me.Audio_Label2.BackColor = System.Drawing.SystemColors.Control
         Me.Audio_Label2.Location = New System.Drawing.Point(533, 90)
         Me.Audio_Label2.Name = "Audio_Label2"
-        Me.Audio_Label2.Size = New System.Drawing.Size(38, 15)
+        Me.Audio_Label2.Size = New System.Drawing.Size(48, 20)
         Me.Audio_Label2.TabIndex = 20
         Me.Audio_Label2.Text = "Mode"
         '
@@ -456,7 +468,7 @@ Partial Class FrmMain
         Me.Audio_Label1.AutoSize = True
         Me.Audio_Label1.Location = New System.Drawing.Point(533, 18)
         Me.Audio_Label1.Name = "Audio_Label1"
-        Me.Audio_Label1.Size = New System.Drawing.Size(110, 15)
+        Me.Audio_Label1.Size = New System.Drawing.Size(138, 20)
         Me.Audio_Label1.TabIndex = 17
         Me.Audio_Label1.Text = "Input Sound Device"
         '
@@ -466,7 +478,7 @@ Partial Class FrmMain
         Me.Audio_ComboBox1.FormattingEnabled = True
         Me.Audio_ComboBox1.Location = New System.Drawing.Point(533, 43)
         Me.Audio_ComboBox1.Name = "Audio_ComboBox1"
-        Me.Audio_ComboBox1.Size = New System.Drawing.Size(323, 23)
+        Me.Audio_ComboBox1.Size = New System.Drawing.Size(323, 28)
         Me.Audio_ComboBox1.TabIndex = 19
         '
         'Audio_Label10
@@ -474,7 +486,7 @@ Partial Class FrmMain
         Me.Audio_Label10.AutoSize = True
         Me.Audio_Label10.Location = New System.Drawing.Point(806, 146)
         Me.Audio_Label10.Name = "Audio_Label10"
-        Me.Audio_Label10.Size = New System.Drawing.Size(41, 15)
+        Me.Audio_Label10.Size = New System.Drawing.Size(53, 20)
         Me.Audio_Label10.TabIndex = 30
         Me.Audio_Label10.Text = "-90 dB"
         '
@@ -493,7 +505,7 @@ Partial Class FrmMain
         Me.Audio_RadioButton2.AutoSize = True
         Me.Audio_RadioButton2.Location = New System.Drawing.Point(3, 34)
         Me.Audio_RadioButton2.Name = "Audio_RadioButton2"
-        Me.Audio_RadioButton2.Size = New System.Drawing.Size(53, 19)
+        Me.Audio_RadioButton2.Size = New System.Drawing.Size(65, 24)
         Me.Audio_RadioButton2.TabIndex = 1
         Me.Audio_RadioButton2.TabStop = True
         Me.Audio_RadioButton2.Text = "Right"
@@ -504,7 +516,7 @@ Partial Class FrmMain
         Me.Audio_RadioButton1.AutoSize = True
         Me.Audio_RadioButton1.Location = New System.Drawing.Point(3, 4)
         Me.Audio_RadioButton1.Name = "Audio_RadioButton1"
-        Me.Audio_RadioButton1.Size = New System.Drawing.Size(45, 19)
+        Me.Audio_RadioButton1.Size = New System.Drawing.Size(55, 24)
         Me.Audio_RadioButton1.TabIndex = 0
         Me.Audio_RadioButton1.TabStop = True
         Me.Audio_RadioButton1.Text = "Left"
@@ -545,7 +557,7 @@ Partial Class FrmMain
         Me.Audio_Label8.AutoSize = True
         Me.Audio_Label8.Location = New System.Drawing.Point(708, 105)
         Me.Audio_Label8.Name = "Audio_Label8"
-        Me.Audio_Label8.Size = New System.Drawing.Size(86, 15)
+        Me.Audio_Label8.Size = New System.Drawing.Size(107, 20)
         Me.Audio_Label8.TabIndex = 27
         Me.Audio_Label8.Text = "VOX Threshold"
         '
@@ -554,7 +566,7 @@ Partial Class FrmMain
         Me.Audio_Label9.AutoSize = True
         Me.Audio_Label9.Location = New System.Drawing.Point(747, 345)
         Me.Audio_Label9.Name = "Audio_Label9"
-        Me.Audio_Label9.Size = New System.Drawing.Size(13, 15)
+        Me.Audio_Label9.Size = New System.Drawing.Size(17, 20)
         Me.Audio_Label9.TabIndex = 29
         Me.Audio_Label9.Text = "0"
         Me.Audio_Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -582,7 +594,7 @@ Partial Class FrmMain
         Me.TP1_CheckBox2.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_CheckBox2.Location = New System.Drawing.Point(20, 245)
         Me.TP1_CheckBox2.Name = "TP1_CheckBox2"
-        Me.TP1_CheckBox2.Size = New System.Drawing.Size(123, 19)
+        Me.TP1_CheckBox2.Size = New System.Drawing.Size(152, 24)
         Me.TP1_CheckBox2.TabIndex = 11
         Me.TP1_CheckBox2.Text = "Top Most Window"
         Me.TP1_CheckBox2.UseVisualStyleBackColor = False
@@ -593,7 +605,7 @@ Partial Class FrmMain
         Me.TP1_CheckBox1.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_CheckBox1.Location = New System.Drawing.Point(20, 211)
         Me.TP1_CheckBox1.Name = "TP1_CheckBox1"
-        Me.TP1_CheckBox1.Size = New System.Drawing.Size(217, 19)
+        Me.TP1_CheckBox1.Size = New System.Drawing.Size(272, 24)
         Me.TP1_CheckBox1.TabIndex = 10
         Me.TP1_CheckBox1.Text = "Start Recorder When Program Loads"
         Me.TP1_CheckBox1.UseVisualStyleBackColor = False
@@ -614,7 +626,7 @@ Partial Class FrmMain
         Me.TP1_CheckBox3.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_CheckBox3.Location = New System.Drawing.Point(20, 279)
         Me.TP1_CheckBox3.Name = "TP1_CheckBox3"
-        Me.TP1_CheckBox3.Size = New System.Drawing.Size(288, 19)
+        Me.TP1_CheckBox3.Size = New System.Drawing.Size(360, 24)
         Me.TP1_CheckBox3.TabIndex = 12
         Me.TP1_CheckBox3.Text = "Don't Record && Upload Calls Less Than 2 Seconds"
         Me.TP1_CheckBox3.UseVisualStyleBackColor = False
@@ -625,7 +637,7 @@ Partial Class FrmMain
         Me.TP1_Label7.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_Label7.Location = New System.Drawing.Point(185, 140)
         Me.TP1_Label7.Name = "TP1_Label7"
-        Me.TP1_Label7.Size = New System.Drawing.Size(96, 15)
+        Me.TP1_Label7.Size = New System.Drawing.Size(116, 20)
         Me.TP1_Label7.TabIndex = 8
         Me.TP1_Label7.Text = "Conv. Frequency"
         '
@@ -635,7 +647,7 @@ Partial Class FrmMain
         Me.TP1_Label3.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_Label3.Location = New System.Drawing.Point(20, 80)
         Me.TP1_Label3.Name = "TP1_Label3"
-        Me.TP1_Label3.Size = New System.Drawing.Size(80, 15)
+        Me.TP1_Label3.Size = New System.Drawing.Size(100, 20)
         Me.TP1_Label3.TabIndex = 4
         Me.TP1_Label3.Text = "System Name"
         '
@@ -644,7 +656,7 @@ Partial Class FrmMain
         Me.TP1_TextBox2.BackColor = System.Drawing.SystemColors.Window
         Me.TP1_TextBox2.Location = New System.Drawing.Point(351, 40)
         Me.TP1_TextBox2.Name = "TP1_TextBox2"
-        Me.TP1_TextBox2.Size = New System.Drawing.Size(140, 23)
+        Me.TP1_TextBox2.Size = New System.Drawing.Size(140, 27)
         Me.TP1_TextBox2.TabIndex = 3
         '
         'TP1_Label2
@@ -653,7 +665,7 @@ Partial Class FrmMain
         Me.TP1_Label2.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_Label2.Location = New System.Drawing.Point(351, 20)
         Me.TP1_Label2.Name = "TP1_Label2"
-        Me.TP1_Label2.Size = New System.Drawing.Size(59, 15)
+        Me.TP1_Label2.Size = New System.Drawing.Size(75, 20)
         Me.TP1_Label2.TabIndex = 2
         Me.TP1_Label2.Text = "System ID"
         '
@@ -662,7 +674,7 @@ Partial Class FrmMain
         Me.TP1_TextBox1.BackColor = System.Drawing.SystemColors.Window
         Me.TP1_TextBox1.Location = New System.Drawing.Point(20, 40)
         Me.TP1_TextBox1.Name = "TP1_TextBox1"
-        Me.TP1_TextBox1.Size = New System.Drawing.Size(307, 23)
+        Me.TP1_TextBox1.Size = New System.Drawing.Size(307, 27)
         Me.TP1_TextBox1.TabIndex = 1
         '
         'TP1_Label1
@@ -671,7 +683,7 @@ Partial Class FrmMain
         Me.TP1_Label1.BackColor = System.Drawing.SystemColors.Control
         Me.TP1_Label1.Location = New System.Drawing.Point(20, 20)
         Me.TP1_Label1.Name = "TP1_Label1"
-        Me.TP1_Label1.Size = New System.Drawing.Size(47, 15)
+        Me.TP1_Label1.Size = New System.Drawing.Size(59, 20)
         Me.TP1_Label1.TabIndex = 0
         Me.TP1_Label1.Text = "API Key"
         '
@@ -714,7 +726,7 @@ Partial Class FrmMain
         Me.Tone_RadioButton1.Checked = True
         Me.Tone_RadioButton1.Location = New System.Drawing.Point(3, 3)
         Me.Tone_RadioButton1.Name = "Tone_RadioButton1"
-        Me.Tone_RadioButton1.Size = New System.Drawing.Size(42, 19)
+        Me.Tone_RadioButton1.Size = New System.Drawing.Size(51, 24)
         Me.Tone_RadioButton1.TabIndex = 0
         Me.Tone_RadioButton1.TabStop = True
         Me.Tone_RadioButton1.Text = "Off"
@@ -725,7 +737,7 @@ Partial Class FrmMain
         Me.Tone_RadioButton4.AutoSize = True
         Me.Tone_RadioButton4.Location = New System.Drawing.Point(3, 93)
         Me.Tone_RadioButton4.Name = "Tone_RadioButton4"
-        Me.Tone_RadioButton4.Size = New System.Drawing.Size(53, 19)
+        Me.Tone_RadioButton4.Size = New System.Drawing.Size(65, 24)
         Me.Tone_RadioButton4.TabIndex = 3
         Me.Tone_RadioButton4.Text = "Right"
         Me.Tone_RadioButton4.UseVisualStyleBackColor = True
@@ -735,7 +747,7 @@ Partial Class FrmMain
         Me.Tone_RadioButton3.AutoSize = True
         Me.Tone_RadioButton3.Location = New System.Drawing.Point(3, 63)
         Me.Tone_RadioButton3.Name = "Tone_RadioButton3"
-        Me.Tone_RadioButton3.Size = New System.Drawing.Size(45, 19)
+        Me.Tone_RadioButton3.Size = New System.Drawing.Size(55, 24)
         Me.Tone_RadioButton3.TabIndex = 2
         Me.Tone_RadioButton3.Text = "Left"
         Me.Tone_RadioButton3.UseVisualStyleBackColor = True
@@ -745,7 +757,7 @@ Partial Class FrmMain
         Me.Tone_RadioButton2.AutoSize = True
         Me.Tone_RadioButton2.Location = New System.Drawing.Point(3, 33)
         Me.Tone_RadioButton2.Name = "Tone_RadioButton2"
-        Me.Tone_RadioButton2.Size = New System.Drawing.Size(58, 19)
+        Me.Tone_RadioButton2.Size = New System.Drawing.Size(73, 24)
         Me.Tone_RadioButton2.TabIndex = 1
         Me.Tone_RadioButton2.Text = "Stereo"
         Me.Tone_RadioButton2.UseVisualStyleBackColor = True
@@ -755,7 +767,7 @@ Partial Class FrmMain
         Me.Tone_Label1.AutoSize = True
         Me.Tone_Label1.Location = New System.Drawing.Point(10, 28)
         Me.Tone_Label1.Name = "Tone_Label1"
-        Me.Tone_Label1.Size = New System.Drawing.Size(32, 15)
+        Me.Tone_Label1.Size = New System.Drawing.Size(40, 20)
         Me.Tone_Label1.TabIndex = 0
         Me.Tone_Label1.Text = "Type"
         '
@@ -765,7 +777,7 @@ Partial Class FrmMain
         Me.Tone_ComboBox1.Items.AddRange(New Object() {"Sine", "Square", "Triangular", "Sawtooth", "Noise"})
         Me.Tone_ComboBox1.Location = New System.Drawing.Point(10, 54)
         Me.Tone_ComboBox1.Name = "Tone_ComboBox1"
-        Me.Tone_ComboBox1.Size = New System.Drawing.Size(100, 23)
+        Me.Tone_ComboBox1.Size = New System.Drawing.Size(100, 28)
         Me.Tone_ComboBox1.TabIndex = 1
         '
         'Tone_Label5
@@ -774,7 +786,7 @@ Partial Class FrmMain
         Me.Tone_Label5.BackColor = System.Drawing.SystemColors.Control
         Me.Tone_Label5.Location = New System.Drawing.Point(233, 224)
         Me.Tone_Label5.Name = "Tone_Label5"
-        Me.Tone_Label5.Size = New System.Drawing.Size(31, 15)
+        Me.Tone_Label5.Size = New System.Drawing.Size(41, 20)
         Me.Tone_Label5.TabIndex = 8
         Me.Tone_Label5.Text = "4000"
         '
@@ -784,7 +796,7 @@ Partial Class FrmMain
         Me.Tone_Label3.BackColor = System.Drawing.SystemColors.Control
         Me.Tone_Label3.Location = New System.Drawing.Point(124, 224)
         Me.Tone_Label3.Name = "Tone_Label3"
-        Me.Tone_Label3.Size = New System.Drawing.Size(41, 15)
+        Me.Tone_Label3.Size = New System.Drawing.Size(53, 20)
         Me.Tone_Label3.TabIndex = 5
         Me.Tone_Label3.Text = "-30 dB"
         '
@@ -794,7 +806,7 @@ Partial Class FrmMain
         Me.Tone_Label4.BackColor = System.Drawing.SystemColors.Control
         Me.Tone_Label4.Location = New System.Drawing.Point(196, 28)
         Me.Tone_Label4.Name = "Tone_Label4"
-        Me.Tone_Label4.Size = New System.Drawing.Size(62, 15)
+        Me.Tone_Label4.Size = New System.Drawing.Size(76, 20)
         Me.Tone_Label4.TabIndex = 6
         Me.Tone_Label4.Text = "Frequency"
         '
@@ -804,7 +816,7 @@ Partial Class FrmMain
         Me.Tone_Label2.BackColor = System.Drawing.SystemColors.Control
         Me.Tone_Label2.Location = New System.Drawing.Point(124, 28)
         Me.Tone_Label2.Name = "Tone_Label2"
-        Me.Tone_Label2.Size = New System.Drawing.Size(34, 15)
+        Me.Tone_Label2.Size = New System.Drawing.Size(43, 20)
         Me.Tone_Label2.TabIndex = 3
         Me.Tone_Label2.Text = "Level"
         '
@@ -848,9 +860,9 @@ Partial Class FrmMain
         Me.TabPage2.Controls.Add(Me.TP2_Button1)
         Me.TabPage2.Controls.Add(Me.TP2_Button2)
         Me.TabPage2.Controls.Add(Me.TP2_DataGridView1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(885, 505)
+        Me.TabPage2.Size = New System.Drawing.Size(885, 502)
         Me.TabPage2.TabIndex = 3
         Me.TabPage2.Text = "Log"
         '
@@ -899,7 +911,7 @@ Partial Class FrmMain
         Me.TP2_DataGridView1.ShowCellToolTips = False
         Me.TP2_DataGridView1.ShowEditingIcon = False
         Me.TP2_DataGridView1.ShowRowErrors = False
-        Me.TP2_DataGridView1.Size = New System.Drawing.Size(885, 505)
+        Me.TP2_DataGridView1.Size = New System.Drawing.Size(885, 502)
         Me.TP2_DataGridView1.StandardTab = True
         Me.TP2_DataGridView1.TabIndex = 0
         '
@@ -907,10 +919,10 @@ Partial Class FrmMain
         '
         Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage3.Controls.Add(Me.TimeSync1)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(885, 505)
+        Me.TabPage3.Size = New System.Drawing.Size(885, 502)
         Me.TabPage3.TabIndex = 1
         Me.TabPage3.Text = "Time Sync"
         '
@@ -921,7 +933,7 @@ Partial Class FrmMain
         Me.TimeSync1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TimeSync1.Location = New System.Drawing.Point(3, 3)
         Me.TimeSync1.Name = "TimeSync1"
-        Me.TimeSync1.Size = New System.Drawing.Size(879, 499)
+        Me.TimeSync1.Size = New System.Drawing.Size(879, 496)
         Me.TimeSync1.TabIndex = 0
         '
         'TabPage5
@@ -934,10 +946,10 @@ Partial Class FrmMain
         Me.TabPage5.Controls.Add(Me.Label2)
         Me.TabPage5.Controls.Add(Me.RDIO_Url)
         Me.TabPage5.Controls.Add(Me.Label1)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 25)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(885, 505)
+        Me.TabPage5.Size = New System.Drawing.Size(885, 502)
         Me.TabPage5.TabIndex = 5
         Me.TabPage5.Text = "Rdio"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -946,7 +958,7 @@ Partial Class FrmMain
         '
         Me.RDIO_TalkgroupID.Location = New System.Drawing.Point(449, 64)
         Me.RDIO_TalkgroupID.Name = "RDIO_TalkgroupID"
-        Me.RDIO_TalkgroupID.Size = New System.Drawing.Size(97, 23)
+        Me.RDIO_TalkgroupID.Size = New System.Drawing.Size(97, 27)
         Me.RDIO_TalkgroupID.TabIndex = 8
         '
         'Label4
@@ -954,7 +966,7 @@ Partial Class FrmMain
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(446, 35)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(102, 15)
+        Me.Label4.Size = New System.Drawing.Size(129, 20)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Rdio TalkGroup ID"
         '
@@ -962,7 +974,7 @@ Partial Class FrmMain
         '
         Me.RDIO_SystemID.Location = New System.Drawing.Point(320, 64)
         Me.RDIO_SystemID.Name = "RDIO_SystemID"
-        Me.RDIO_SystemID.Size = New System.Drawing.Size(97, 23)
+        Me.RDIO_SystemID.Size = New System.Drawing.Size(97, 27)
         Me.RDIO_SystemID.TabIndex = 5
         '
         'Label3
@@ -970,7 +982,7 @@ Partial Class FrmMain
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(317, 35)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 15)
+        Me.Label3.Size = New System.Drawing.Size(110, 20)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Rdio System ID"
         '
@@ -978,7 +990,7 @@ Partial Class FrmMain
         '
         Me.RDIO_ApiKey.Location = New System.Drawing.Point(26, 149)
         Me.RDIO_ApiKey.Name = "RDIO_ApiKey"
-        Me.RDIO_ApiKey.Size = New System.Drawing.Size(318, 23)
+        Me.RDIO_ApiKey.Size = New System.Drawing.Size(318, 27)
         Me.RDIO_ApiKey.TabIndex = 3
         '
         'Label2
@@ -986,7 +998,7 @@ Partial Class FrmMain
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(23, 120)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 15)
+        Me.Label2.Size = New System.Drawing.Size(94, 20)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Rdio API Key"
         '
@@ -994,7 +1006,7 @@ Partial Class FrmMain
         '
         Me.RDIO_Url.Location = New System.Drawing.Point(26, 64)
         Me.RDIO_Url.Name = "RDIO_Url"
-        Me.RDIO_Url.Size = New System.Drawing.Size(262, 23)
+        Me.RDIO_Url.Size = New System.Drawing.Size(262, 27)
         Me.RDIO_Url.TabIndex = 1
         '
         'Label1
@@ -1002,9 +1014,84 @@ Partial Class FrmMain
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(23, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(100, 15)
+        Me.Label1.Size = New System.Drawing.Size(126, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Rdio Scanner URL"
+        '
+        'BunnyCalls
+        '
+        Me.BunnyCalls.Controls.Add(Me.BC_LinkLabel1)
+        Me.BunnyCalls.Controls.Add(Me.Label8)
+        Me.BunnyCalls.Controls.Add(Me.Label7)
+        Me.BunnyCalls.Controls.Add(Me.Label6)
+        Me.BunnyCalls.Controls.Add(Me.BC_TGID)
+        Me.BunnyCalls.Controls.Add(Me.BC_SysID)
+        Me.BunnyCalls.Controls.Add(Me.BC_ApiKey)
+        Me.BunnyCalls.Location = New System.Drawing.Point(4, 29)
+        Me.BunnyCalls.Name = "BunnyCalls"
+        Me.BunnyCalls.Padding = New System.Windows.Forms.Padding(3)
+        Me.BunnyCalls.Size = New System.Drawing.Size(885, 498)
+        Me.BunnyCalls.TabIndex = 6
+        Me.BunnyCalls.Text = "BunnyCalls"
+        Me.BunnyCalls.UseVisualStyleBackColor = True
+        '
+        'BC_LinkLabel1
+        '
+        Me.BC_LinkLabel1.AutoSize = True
+        Me.BC_LinkLabel1.Location = New System.Drawing.Point(23, 43)
+        Me.BC_LinkLabel1.Name = "BC_LinkLabel1"
+        Me.BC_LinkLabel1.Size = New System.Drawing.Size(112, 20)
+        Me.BC_LinkLabel1.TabIndex = 6
+        Me.BC_LinkLabel1.TabStop = True
+        Me.BC_LinkLabel1.Text = "BunnyCalls.com"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(525, 116)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(93, 20)
+        Me.Label8.TabIndex = 5
+        Me.Label8.Text = "Talkgroup ID"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(357, 113)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(75, 20)
+        Me.Label7.TabIndex = 4
+        Me.Label7.Text = "System ID"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(23, 113)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(134, 20)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "BunnyCalls API Key"
+        '
+        'BC_TGID
+        '
+        Me.BC_TGID.Location = New System.Drawing.Point(525, 147)
+        Me.BC_TGID.Name = "BC_TGID"
+        Me.BC_TGID.Size = New System.Drawing.Size(100, 27)
+        Me.BC_TGID.TabIndex = 2
+        '
+        'BC_SysID
+        '
+        Me.BC_SysID.Location = New System.Drawing.Point(361, 147)
+        Me.BC_SysID.Name = "BC_SysID"
+        Me.BC_SysID.Size = New System.Drawing.Size(100, 27)
+        Me.BC_SysID.TabIndex = 1
+        '
+        'BC_ApiKey
+        '
+        Me.BC_ApiKey.Location = New System.Drawing.Point(27, 147)
+        Me.BC_ApiKey.Name = "BC_ApiKey"
+        Me.BC_ApiKey.Size = New System.Drawing.Size(256, 27)
+        Me.BC_ApiKey.TabIndex = 0
         '
         'TabPage4
         '
@@ -1021,9 +1108,9 @@ Partial Class FrmMain
         Me.TabPage4.Controls.Add(Me.TP4_Label2)
         Me.TabPage4.Controls.Add(Me.TP4_Label1)
         Me.TabPage4.Controls.Add(Me.TP4_PictureBox1)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(885, 505)
+        Me.TabPage4.Size = New System.Drawing.Size(885, 502)
         Me.TabPage4.TabIndex = 4
         Me.TabPage4.Text = "About"
         '
@@ -1043,7 +1130,7 @@ Partial Class FrmMain
         Me.TP4_LinkLabel4.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
         Me.TP4_LinkLabel4.Location = New System.Drawing.Point(394, 130)
         Me.TP4_LinkLabel4.Name = "TP4_LinkLabel4"
-        Me.TP4_LinkLabel4.Size = New System.Drawing.Size(149, 15)
+        Me.TP4_LinkLabel4.Size = New System.Drawing.Size(189, 20)
         Me.TP4_LinkLabel4.TabIndex = 3
         Me.TP4_LinkLabel4.Text = "Broadcastify Calls Web Site"
         '
@@ -1060,7 +1147,7 @@ Partial Class FrmMain
         Me.TP4_Label6.AutoSize = True
         Me.TP4_Label6.Location = New System.Drawing.Point(140, 190)
         Me.TP4_Label6.Name = "TP4_Label6"
-        Me.TP4_Label6.Size = New System.Drawing.Size(440, 15)
+        Me.TP4_Label6.Size = New System.Drawing.Size(557, 20)
         Me.TP4_Label6.TabIndex = 7
         Me.TP4_Label6.Text = "Developed using Visual Studio 2022          Targets the Microsoft NET Framework 4" &
     ".8" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
@@ -1071,7 +1158,7 @@ Partial Class FrmMain
         Me.TP4_LinkLabel3.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
         Me.TP4_LinkLabel3.Location = New System.Drawing.Point(489, 160)
         Me.TP4_LinkLabel3.Name = "TP4_LinkLabel3"
-        Me.TP4_LinkLabel3.Size = New System.Drawing.Size(99, 15)
+        Me.TP4_LinkLabel3.Size = New System.Drawing.Size(125, 20)
         Me.TP4_LinkLabel3.TabIndex = 6
         Me.TP4_LinkLabel3.Text = "ProScan Web Site"
         '
@@ -1081,7 +1168,7 @@ Partial Class FrmMain
         Me.TP4_LinkLabel2.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
         Me.TP4_LinkLabel2.Location = New System.Drawing.Point(323, 160)
         Me.TP4_LinkLabel2.Name = "TP4_LinkLabel2"
-        Me.TP4_LinkLabel2.Size = New System.Drawing.Size(102, 15)
+        Me.TP4_LinkLabel2.Size = New System.Drawing.Size(128, 20)
         Me.TP4_LinkLabel2.TabIndex = 5
         Me.TP4_LinkLabel2.Text = "bob@proscan.org"
         '
@@ -1107,7 +1194,7 @@ Partial Class FrmMain
         Me.TP4_LinkLabel1.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
         Me.TP4_LinkLabel1.Location = New System.Drawing.Point(140, 130)
         Me.TP4_LinkLabel1.Name = "TP4_LinkLabel1"
-        Me.TP4_LinkLabel1.Size = New System.Drawing.Size(135, 15)
+        Me.TP4_LinkLabel1.Size = New System.Drawing.Size(170, 20)
         Me.TP4_LinkLabel1.TabIndex = 2
         Me.TP4_LinkLabel1.Text = "VOX Recorder on github"
         '
@@ -1124,7 +1211,7 @@ Partial Class FrmMain
         Me.TP4_Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
         Me.TP4_Label1.Location = New System.Drawing.Point(140, 10)
         Me.TP4_Label1.Name = "TP4_Label1"
-        Me.TP4_Label1.Size = New System.Drawing.Size(114, 21)
+        Me.TP4_Label1.Size = New System.Drawing.Size(138, 28)
         Me.TP4_Label1.TabIndex = 0
         Me.TP4_Label1.Text = "VOX Recorder"
         '
@@ -1140,6 +1227,16 @@ Partial Class FrmMain
         Me.TP4_PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.TP4_PictureBox1.TabIndex = 0
         Me.TP4_PictureBox1.TabStop = False
+        '
+        'BCCheckBox
+        '
+        Me.BCCheckBox.AutoSize = True
+        Me.BCCheckBox.Location = New System.Drawing.Point(351, 206)
+        Me.BCCheckBox.Name = "BCCheckBox"
+        Me.BCCheckBox.Size = New System.Drawing.Size(102, 24)
+        Me.BCCheckBox.TabIndex = 39
+        Me.BCCheckBox.Text = "BunnyCalls"
+        Me.BCCheckBox.UseVisualStyleBackColor = True
         '
         'FrmMain
         '
@@ -1169,6 +1266,8 @@ Partial Class FrmMain
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
+        Me.BunnyCalls.ResumeLayout(False)
+        Me.BunnyCalls.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.TP4_PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1311,4 +1410,13 @@ Partial Class FrmMain
     Friend WithEvents Label5 As Label
     Friend WithEvents RdioMode As CheckBox
     Friend WithEvents BroadcastifyMode As CheckBox
+    Friend WithEvents BunnyCalls As TabPage
+    Friend WithEvents Label6 As Label
+    Friend WithEvents BC_TGID As TextBox
+    Friend WithEvents BC_SysID As TextBox
+    Friend WithEvents BC_ApiKey As TextBox
+    Friend WithEvents BC_LinkLabel1 As LinkLabel
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents BCCheckBox As CheckBox
 End Class

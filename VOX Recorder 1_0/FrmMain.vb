@@ -24,6 +24,7 @@ Public Class FrmMain
         Me.MinimumSize = New Size(911, 578)
         FormatStatusLogGrid()
         SetupAbout()
+        SetupBunnyCalls()
         VOX1 = New VOX
         ReadConfig()
         StartWaveIn()
@@ -42,6 +43,22 @@ Public Class FrmMain
 #End If
 
     End Sub
+
+    Private Sub SetupBunnyCalls()
+        BC_LinkLabel1.Text = "Visit BunnyCalls"
+        BC_LinkLabel1.Links.Clear()
+        BC_LinkLabel1.Links.Add(0, BC_LinkLabel1.Text.Length, "https://BunnyCalls.com/")
+
+    End Sub
+    Private Sub BC_LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles BC_LinkLabel1.LinkClicked
+        Dim url As String = e.Link.LinkData.ToString()
+        Try
+            Process.Start(New ProcessStartInfo(url) With {.UseShellExecute = True})
+        Catch ex As Exception
+            MessageBox.Show("Could not open the link: " & ex.Message)
+        End Try
+    End Sub
+
 
     Private Sub SaveConfigTimerEvent(source As Object, e As ElapsedEventArgs)
 
@@ -96,9 +113,9 @@ Public Class FrmMain
     End Sub
 
     Public Sub TP1_Button3_Click(sender As Object, e As EventArgs) Handles TP1_Button3.Click
-        If BroadcastifyMode.Checked = False AndAlso RdioMode.Checked = False Then
+        If BroadcastifyMode.Checked = False AndAlso RdioMode.Checked = False AndAlso BCCheckBox.Checked = False Then
             Using New CenteredMessageBox(Me)
-                MessageBox.Show(Me, "Select either Broadcastify or Rdio", ProgramName)
+                MessageBox.Show(Me, "Select either Broadcastify, Rdio, or BunnyCalls", ProgramName)
             End Using
             Return
         End If
@@ -505,6 +522,35 @@ Public Class FrmMain
             End If
         End If
 
+        If BCCheckBox.Checked Then
+
+            BC_ApiKey.Text = BC_ApiKey.Text.Trim
+            BC_SysID.Text = BC_SysID.Text.Trim
+            BC_TGID.Text = BC_TGID.Text.Trim
+
+            If BC_ApiKey.Text = String.Empty Then
+                Using New CenteredMessageBox(Me)
+                    MessageBox.Show(Me, "BunnyCalls API Key must Not be blank", ProgramName)
+                End Using
+                BC_ApiKey.Focus()
+                Return False
+            End If
+            If BC_SysID.Text = String.Empty Then
+                Using New CenteredMessageBox(Me)
+                    MessageBox.Show(Me, "BunnyCalls System ID must Not be blank", ProgramName)
+                End Using
+                BC_SysID.Focus()
+                Return False
+            End If
+            If BC_TGID.Text = String.Empty Then
+                Using New CenteredMessageBox(Me)
+                    MessageBox.Show(Me, "BunnyCalls Talkgroup ID must Not be blank", ProgramName)
+                End Using
+                BC_TGID.Focus()
+                Return False
+            End If
+        End If
+
         Return True
 
     End Function
@@ -758,4 +804,5 @@ Public Class FrmMain
         TP2_DataGridView1.ClearSelection()
 
     End Sub
+
 End Class
